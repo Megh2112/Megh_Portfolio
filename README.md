@@ -44,7 +44,14 @@ An end-to-end analysis about 100K+ orders from a Brazilian Online Marketing data
 ```
 </details>
 
-![Executive Overview](Executive_Overview_page.png)
+
+
+
+
+
+
+What it Shows: Monthly Revenue, Top Product Categories, Revenue by State
+1. In the bar chart Revenue by Month it is clear the revenue only peaks after January 2017 
 
 
 
