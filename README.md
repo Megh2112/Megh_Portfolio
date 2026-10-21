@@ -1,5 +1,5 @@
 # Ecommerce Sales & Customer Retention Analytics
-An end-to-end analysis about 100K+ orders from a Brazilian Online Marketing dataset(Olist 2016 - 2018). I modelled the raw data into Snowflake with SQL and bulit a 3-page dashboard in Power BI answering revenue, customer retention, delivery performance.
+An end-to-end analysis about 100K+ orders from a Brazilian Online Marketing dataset(Olist 2016 - 2018). I modeled the raw data into Snowflake with SQL and built a 3-page dashboard in Power BI answering revenue, customer retention, delivery performance.
 
 
  Tools Used: Snowflake, SQL, Power BI(DAX)
@@ -41,9 +41,8 @@ An end-to-end analysis about 100K+ orders from a Brazilian Online Marketing data
   Left Join items i ON o.order_id = i.order_id
  Left Join payments p ON o.order_id = p.order_id;
 
-
+```
 </details>
 
-<img width="1547" height="867" alt="Executive_Overview_page" src="https://github.com/user-attachments/assets/a248daca-0dab-4476-9544-962d9640f681" />
 
 
