@@ -44,5 +44,7 @@ An end-to-end analysis about 100K+ orders from a Brazilian Online Marketing data
 ```
 </details>
 
+![Image alt](https://github.com/Megh2112/Megh_Portfolio/blob/cdc9928e8a17d073352691f1206c5f9d0b344948/Executive_Overview_page.png)
+
 
 
