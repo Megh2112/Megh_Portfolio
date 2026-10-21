@@ -49,6 +49,8 @@ An end-to-end analysis about 100K+ orders from a Brazilian Online Marketing data
 
 
 
+Executive Overview:
+
 
 What it Shows: Monthly Revenue, Top Product Categories, Revenue by State
 1. In the line chart Revenue by Month the revenue only grows after January 2017 peaking through about 1M by late November 2017 and held between 0.8M to 0.9M
@@ -64,6 +66,12 @@ What it Shows: Monthly Revenue, Top Product Categories, Revenue by State
 3. In Table view Sao Paulo being the top leading state in revenue with a total of 38% revenue.
  
 4. The Avg Review Score includes DAX measure of review_score column, Avg Order value includes division between revenue and orders.
+
+
+
+Customer Insights
+
+
 
 
 
