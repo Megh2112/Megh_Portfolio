@@ -69,7 +69,7 @@ What it Shows: Monthly Revenue, Top Product Categories, Revenue by State
 
 
 
-Customer Insights
+                                                    **Customer Insights**
 
 
 ![Customer Insight](Customer_Insight.png)
