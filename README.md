@@ -2,12 +2,12 @@
 An end-to-end analysis about 100K+ orders from a Brazilian Online Marketing dataset(Olist 2016 - 2018). I modelled the raw data into Snowflake with SQL and bulit a 3-page dashboard in Power BI answering revenue, customer retention, delivery performance.
 
 
-## Tools Used: Snowflake, SQL, Power BI(DAX)
+# Tools Used: Snowflake, SQL, Power BI(DAX)
 
-## Dataset: 9 tables including customers, orders, payments, review score, items, product & sellers details.
+# Dataset: 9 tables including customers, orders, payments, review score, items, product & sellers details.
 
 
-## Approach: I'm going to answer a few Business Questions from my analysis showcasing charts and sql snippets.
+# Approach: I'm going to answer a few Business Questions from my analysis showcasing charts and sql snippets.
 
 
          1. How the revenue is growing and which categories and region helps drive it?
