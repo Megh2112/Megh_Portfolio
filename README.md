@@ -43,3 +43,7 @@ An end-to-end analysis about 100K+ orders from a Brazilian Online Marketing data
 
 
 </details>
+
+<img width="1547" height="867" alt="Executive_Overview_page" src="https://github.com/user-attachments/assets/a248daca-0dab-4476-9544-962d9640f681" />
+
+
