@@ -44,12 +44,16 @@ An end-to-end analysis about 100K+ orders from a Brazilian Online Marketing data
 ```
 </details>
 
+
+
+                                                          **Executive Overview**
+
 ![Executive Overview](Executive_Overview.png)
 
 
 
 
-Executive Overview:
+
 
 
 What it Shows: Monthly Revenue, Top Product Categories, Revenue by State
