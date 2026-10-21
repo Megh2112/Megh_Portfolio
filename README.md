@@ -80,6 +80,16 @@ What it Shows: Monthly Revenue, Top Product Categories, Revenue by State
 
 
 
+1. In table view Monthly Retention is very low between 0.1% to 0.7% of each cohort in the months after their first order
+2. Champions and Repeat customers are about 2.8K ( about 3K of the base) so the currently the business depends on constantly acquiring new buyers.
+3. About 13.8k At Risk High Value (single high spend buyers who haven't returned back) are the clearest win-back target. They amount about 3.8M in revenue.
+4. Revenue by segment shows New High Value 3.9M revenue where customers are 14.5k, At Risk High Value amount 3.8M where customers are 13.8k, where Champions and      Repeat customers amount about 0.3M and 0.4M respectively where customers are 1.2k and 1.6k at low value since repeat buyers are rare. Lost/Low Value amount        about 1.3M where customers are high value 22.6k because each customer spends little.
+
+
+
+
+
+
 
 
 
