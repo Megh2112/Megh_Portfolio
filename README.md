@@ -20,7 +20,9 @@ An end-to-end analysis about 100K+ orders from a Brazilian Online Marketing data
 <details> 
   <summary> Building one row per order without inflating revenue </summary>
   
+
  Orders can have several items and payments regarding it. Joining the tables directly would multiply rows and over count revenue, so first aggregating one row per order.
+
  
  ```SQL
 
@@ -42,6 +44,7 @@ Join customers c ON o.customer_id = c.customer_id
 Left Join items i ON o.order_id = i.order_id
 Left Join payments p ON o.order_id = p.order_id;
 ```
+
 
 </details>
 
