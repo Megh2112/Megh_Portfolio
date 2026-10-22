@@ -17,32 +17,30 @@ An end-to-end analysis about 100K+ orders from a Brazilian Online Marketing data
          
          4. Do late deliveries hurt customer satisfaction?
          
-<details>
- 
+<details> 
   <summary> Building one row per order without inflating revenue </summary>
   
- <summary> Orders can have several items and payments regarding it. Joining the tables directly would multiply rows and overcount revenue, so first aggregating one row per order. </summary>
+ Orders can have several items and payments regarding it. Joining the tables directly would multiply rows and over count revenue, so first aggregating one row per order.
  
  ```SQL
 
 
- With items AS ( Select order_id, Count(*) AS n_items, Sum(price) AS items_revenue
-                From order_items
-                Group by order_id ),
-
-
-payments AS ( Select order_id, Sum(payment_value) AS payment_total
-  from order_payments
-  Group by order_id )
-
-
-  Select o.order_id, c.customer_unique_id, i.items_revenue, p.payment_total,
-  DATEDIFF ('day',o.order_purchase_timestamp, o.order_delivered_customer_date) AS delivery_days
-  From orders o
-  Join customers c ON o.customer_id = c.customer_id
-  Left Join items i ON o.order_id = i.order_id
- Left Join payments p ON o.order_id = p.order_id;
-
+ With items AS (
+Select order_id, Count(*) AS n_items, Sum(price) AS items_revenue
+From order_items
+Group by order_id
+),
+payments AS (
+Select order_id, Sum(payment_value) AS payment_total
+from order_payments
+Group by order_id
+)
+Select o.order_id, c.customer_unique_id, i.items_revenue, p.payment_total,
+DATEDIFF('day',o.order_purchase_timestamp, o.order_delivered_customer_date) AS delivery_days
+From orders o
+Join customers c ON o.customer_id = c.customer_id
+Left Join items i ON o.order_id = i.order_id
+Left Join payments p ON o.order_id = p.order_id;
 ```
 
 </details>
