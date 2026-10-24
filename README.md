@@ -21,6 +21,28 @@ An end-to-end analysis about 100K+ orders from a Brazilian Online Marketing data
 <summary>Building one row per order without inflating revenue</summary>
 
 Orders can have several items and payments. Joining the tables directly would multiply rows and overcount revenue, so each table is first aggregated to one row per order.
+```sql
+WITH items AS (
+  SELECT order_id, COUNT(*) AS n_items, SUM(price) AS items_revenue
+  FROM order_items
+  GROUP BY order_id
+),
+payments AS (
+  SELECT order_id, SUM(payment_value) AS payment_total
+  FROM order_payments
+  GROUP BY order_id
+)
+SELECT o.order_id,
+       c.customer_unique_id,
+       i.items_revenue,
+       p.payment_total,
+       DATEDIFF('day', o.order_purchase_timestamp,
+                       o.order_delivered_customer_date) AS delivery_days
+FROM orders o
+JOIN customers c      ON o.customer_id = c.customer_id
+LEFT JOIN items i     ON o.order_id = i.order_id
+LEFT JOIN payments p  ON o.order_id = p.order_id;
+```
 
 
 </details>
@@ -62,9 +84,9 @@ What it Shows: Monthly Revenue, Top Product Categories, Revenue by State
 
 
 1. In table view Monthly Retention is very low between 0.1% to 0.7% of each cohort in the months after their first order
-2. Champions and Repeat customers are about 2.8K ( about 3K of the base) so the currently the business depends on constantly acquiring new buyers.
-3. About 13.8k At Risk High Value (single high spend buyers who haven't returned back) are the clearest win-back target. They amount about 3.8M in revenue.
-4. Revenue by segment shows New High Value 3.9M revenue where customers are 14.5k, At Risk High Value amount 3.8M where customers are 13.8k, where Champions and      Repeat customers amount about 0.3M and 0.4M respectively where customers are 1.2k and 1.6k at low value since repeat buyers are rare. Lost/Low Value amount        about 1.3M where customers are high value 22.6k because each customer spends little.
+2. In Bar chart Customers by Segment - Champions and Repeat customers are about 2.8K ( about 3K of the base) so the currently the business depends on constantly acquiring new buyers.
+3. In the same chart as above - About 13.8k At Risk High Value (single high spend buyers who haven't returned back) are the clearest win-back target. They amount about 3.8M in revenue.
+4. Revenue by segment Bar Chart shows New High Value 3.9M revenue where customers are 14.5k, At Risk High Value amount 3.8M where customers are 13.8k, where Champions and      Repeat customers amount about 0.3M and 0.4M respectively where customers are 1.2k and 1.6k at low value since repeat buyers are rare. Lost/Low Value amount        about 1.3M where customers are high value 22.6k because each customer spends little.
 
 
 
