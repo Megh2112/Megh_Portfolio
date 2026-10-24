@@ -17,7 +17,6 @@ An end-to-end analysis about 100K+ orders from a Brazilian Online Marketing data
          
          4. Do late deliveries hurt customer satisfaction?
          
-<details>
 <summary>Building one row per order without inflating revenue</summary>
 
 Orders can have several items and payments. Joining the tables directly would multiply rows and overcount revenue, so each table is first aggregated to one row per order.
@@ -44,8 +43,6 @@ LEFT JOIN items i     ON o.order_id = i.order_id
 LEFT JOIN payments p  ON o.order_id = p.order_id;
 ```
 
-
-</details>
 
 
 
