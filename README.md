@@ -17,7 +17,7 @@ An end-to-end analysis about 100K+ orders from a Brazilian Online Marketing data
          
          4. Do late deliveries hurt customer satisfaction?
          
-<summary>Building one row per order without inflating revenue</summary>
+<summary>Here is the example of sql query used for building one row per order without inflating revenue</summary>
 
 Orders can have several items and payments. Joining the tables directly would multiply rows and overcount revenue, so each table is first aggregated to one row per order.
 ```sql
@@ -84,6 +84,28 @@ What it Shows: Monthly Revenue, Top Product Categories, Revenue by State
 2. In Bar chart Customers by Segment - Champions and Repeat customers are about 2.8K ( about 3K of the base) so the currently the business depends on constantly acquiring new buyers.
 3. In the same chart as above - About 13.8k At Risk High Value (single high spend buyers who haven't returned back) are the clearest win-back target. They amount about 3.8M in revenue.
 4. Revenue by segment Bar Chart shows New High Value 3.9M revenue where customers are 14.5k, At Risk High Value amount 3.8M where customers are 13.8k, where Champions and      Repeat customers amount about 0.3M and 0.4M respectively where customers are 1.2k and 1.6k at low value since repeat buyers are rare. Lost/Low Value amount        about 1.3M where customers are high value 22.6k because each customer spends little.
+
+
+<summary>Cohort Retention Query </summary>
+Each customer is assigned to the month of their first delivered order. The query then counts of how many of them ordered again in each later month. Retention % is that count divided by the size of the cohort in month 0.
+
+```sql
+With orders_m as (
+Select Discount customer_unique_id, DATETRUNC('month', order_date) AS order_month
+FROM fact_orders
+WHERE order_status = 'delivered'
+),
+cohorts AS (
+Select customer_unique_id, order_month, MIN(order_month) OVER (PARTITION BY customer_unique_id) AS cohort_month
+FROM orders_m
+)
+Select cohort_month, DATEDIFF('month', cohort_month, order_month) AS months_since_first_order,
+COUNT(Distinct customer_unique_id) AS customers
+FROM cohorts
+GROUP BY 1,2;
+```
+
+
 
 
 
